@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "MuseoSansCyrl_500";
+    src: url("../fonts/MuseoSansCyrl_500.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Museo Cyrl 500";
+    src: url("../fonts/Museo Cyrl 500.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Museo Cyrl 700";
+    src: url("../fonts/Museo Cyrl 700.otf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+// __MACOSX 
+@font-face {
+    font-family: "._MuseoSansCyrl_500";
+    src: url("../fonts/__MACOSX/._MuseoSansCyrl_500.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "._Museo Cyrl 500";
+    src: url("../fonts/__MACOSX/._Museo Cyrl 500.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "._Museo Cyrl 700";
+    src: url("../fonts/__MACOSX/._Museo Cyrl 700.otf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
