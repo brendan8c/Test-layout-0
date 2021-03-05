@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'global';
+@import 'animation';
 // ============================
 body {
     height: 2000px;
@@ -17,7 +18,51 @@ body {
 }
 
 .wrap-box2 {
-    height: 300px;
+    height: 200px;
+}
+
+.wrap-box3 {
+    position: relative;
+    background-color: #fff;
+    width: 1300px;
+    height: 100px;
+    margin: auto;
+    bottom: -100px;
+    // The tes line!
+    // border: 3px dashed #ff9900;
+}
+
+.wrap-box4 {
+    position: relative;
+    background-color: #fff;
+    width: 1300px;
+    height: 100px;
+    margin: auto;
+    bottom: -100px;
+    // The tes line!
+    // border: 3px dashed #000000;
+}
+
+.wrap-box5 {
+    position: relative;
+    background-color: #fff;
+    width: 1300px;
+    height: 100px;
+    margin: auto;
+    bottom: -100px;
+    // The tes line!
+    // border: 3px dashed #ff9900;
+}
+
+.wrap-box6 {
+    position: relative;
+    background-color: #fff;
+    width: 1300px;
+    height: 100px;
+    margin: auto;
+    bottom: -100px;
+    // The tes line!
+    // border: 3px dashed #000000;
 }
 
 .background {
@@ -90,12 +135,12 @@ body {
     }
     &-item {
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
         width: 1300px;
         height: 300px;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        background-color: #fff;
         left: 0;
         right: 0;
         bottom: 0;
@@ -109,20 +154,31 @@ body {
             color: #000;
             width: 663px;
             margin-top: 25px;
+            margin-bottom: 25px;
         }
         &--wrap {
             display: flex;
-            justify-content: space-evenly;
+            align-items: center;
+            justify-content: space-around;
             width: 100%;
             .box-item {
                 @include fs500;
                 font-size: 14px;
                 line-height: 18px;
-                width: 100px;
+                width: 170px;
+                height: 170px;
                 text-align: center;
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 30px;
+                padding-right: 30px;
+                transition: all .4s;
+                &:hover {
+                    border-radius: 6px;
+                    box-shadow: -1px -1px 5px #F08B98, 1px 1px 5px #F08B98, -1px 1px 5px #F08B98, 1px -1px 5px #F08B98;
+                }
             }
             .box-item_wrap {
                 background-repeat: no-repeat;
@@ -130,7 +186,7 @@ body {
                 background-size: cover;
                 width: 75px;
                 height: 75px;
-                margin-bottom: 10px;
+                margin: 10px;
             }
             .box-item_0 {
                 background-image: url(../img/item_0.jpg);
