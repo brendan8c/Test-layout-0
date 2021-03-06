@@ -1,15 +1,15 @@
 // All 
 @mixin fs500 {
-    font-family: 'MuseoSansCyrl_500', '._MuseoSansCyrl_500';
+    font-family: 'MuseoSansCyrl_500', '._MuseoSansCyrl_500', sans-serif;
     font-weight: 500;
 }
 
 @mixin f500 {
-    font-family: 'Museo Cyrl 500', '._Museo Cyrl 500';
+    font-family: 'Museo Cyrl 500', '._Museo Cyrl 500', sans-serif;
     font-weight: 500;
 }
 
 @mixin f700 {
-    font-family: 'Museo Cyrl 700', '._Museo Cyrl 700';
-    font-weight: 500;
+    font-family: 'Museo Cyrl 700', '._Museo Cyrl 700', sans-serif;
+    font-weight: 700;
 }

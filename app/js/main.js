@@ -94,7 +94,6 @@ function scrolling() {
         bgImage.classList.remove("opacity_4");
     }
 
-
     // Частично видимые элементы
     // if (isPartiallyVisible(wrapbox4)) {
     //     wrapbox4.classList.add("half-active");
@@ -131,3 +130,64 @@ function isFullyVisible(el) {
     // Возвращают высоту окна браузера
     return ((top >= 0) && (bottom <= window.innerHeight));
 }
+
+
+// //#1grn Раскрытие меню
+// function collapseSection(element) {
+//     // Получаем высоту внутреннего содержимого элемента, независимо от его фактического размера
+//     var sectionHeight = element.scrollHeight;
+
+//     // Временно отключаем все переходы css
+//     var elementTransition = element.style.transition;
+//     element.style.transition = '';
+
+//     // В следующем кадре (как только предыдущее изменение стиля вступило в силу),
+//     // явно устанавливаем высоту элемента равной его текущей высоте в пикселях, поэтому мы
+//     // не переходим из "авто"
+//     requestAnimationFrame(function() {
+//         element.style.height = sectionHeight + 'px';
+//         element.style.transition = elementTransition;
+
+//         // В следующем кадре (как только предыдущее изменение стиля вступило в силу),
+//         // есть переход элемента на высоту: 0
+//         requestAnimationFrame(function() {
+//             element.style.height = 0 + 'px';
+//         });
+//     });
+
+//     // Помечаем раздел как «свернутый в настоящий момент»
+//     element.setAttribute('data-collapsed', 'true');
+// }
+
+// function expandSection(element) {
+//     // Получаем высоту внутреннего содержимого элемента, независимо от его фактического размера
+//     var sectionHeight = element.scrollHeight;
+
+//     // Получаем переход элемента на высоту его внутреннего содержимого
+//     element.style.height = sectionHeight + 'px';
+
+//     // Когда завершится следующий переход css (который должен быть тот, который мы только что запустили)
+//     element.addEventListener('transitionend', function(e) {
+//         // Удаляем этот прослушиватель событий, чтобы он запускался только один раз
+//         element.removeEventListener('transitionend', arguments.callee);
+
+//         // Удаляем "высоту" из встроенных стилей элемента, чтобы он мог вернуться к своему начальному значению
+//         element.style.height = null;
+//     });
+
+//     // Помечаем раздел как «в настоящее время не свернутый»
+//     element.setAttribute('data-collapsed', 'false');
+// }
+
+// // Производить действие при наведении мышки 
+// document.querySelector('.menu-box').addEventListener('mouseover', function(e) {
+//     var section = document.querySelector('.menu_categor');
+//     var isCollapsed = section.getAttribute('data-collapsed') === 'true';
+
+//     if (isCollapsed) {
+//         expandSection(section)
+//         section.setAttribute('data-collapsed', 'false')
+//     } else {
+//         collapseSection(section)
+//     }
+// });
