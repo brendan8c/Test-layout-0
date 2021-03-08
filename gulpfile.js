@@ -11,6 +11,7 @@ let gulp = require('gulp'),
 gulp.task('style', function() {
     return gulp.src([
             'node_modules/normalize.css/normalize.css',
+            'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css',
         ])
         .pipe(concat('libs.min.css'))
         .pipe(cssmin())
@@ -20,6 +21,7 @@ gulp.task('style', function() {
 gulp.task('script', function() {
     return gulp.src([
             'node_modules/jquery/dist/jquery.js',
+            'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
         ])
         .pipe(concat('libs.min.js'))
         .pipe(terser())

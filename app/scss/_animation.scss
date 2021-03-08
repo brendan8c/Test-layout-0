@@ -18,10 +18,23 @@
     opacity: 0;
 }
 
-// Для теста частично видимого элемента
-// .opacity_H0 {
-//     opacity: 1;
-// }
-// .opacity_H1 {
-//     opacity: 0.6;
-// }
+//#1grn ScrollBar 
+.mCS-my-theme .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #f08b98;
+}
+
+.mCS-my-theme .mCSB_1_scrollbar .mCSB_dragger .mCSB_draggerRail {
+    width: 4px;
+}
+
+.mCS-my-theme .mCSB_scrollTools .mCSB_draggerRail {
+    background-color: #FAD8DD;
+}
+
+.mCSB_scrollTools .mCSB_draggerContainer {
+    right: 20px;
+}
+
+.mCSB_scrollTools {
+    opacity: 1;
+}

@@ -401,9 +401,46 @@
                 </div>
             </div>
             <div class="background_center">
+                <!--#2pur кнопка -->
                 <div class="background-text">Ты — классная!</div>
+                <!--#2pur Контейнер с формой -->
                 <div class="background-btn">
-                    <button class="background-btn--click">Обратная связь</button>
+                    <a href="#modal" class="background-btn--click">Обратная связь</a>
+                    <div id="modal">
+                        <div id="write" class="modal__window">
+                            <div class="box_1">
+                                <div class="title">Напиши нам</div>
+                                <a class="close" href="#"></a>
+                            </div>
+                            <div class="box_2">
+                                <!--#2pur форма -->
+                                <form enctype="multipart/form-data" id="main-form">
+                                    <div class="form-group">
+                                        <div class="form-text">Имя:</div>
+                                        <input type="text" name="name" class="fg-mr" placeholder="Кукушкина Светлана">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-text">Телефон:</div>
+                                        <input type="tel" name="phone" class="fg-mr" placeholder="8904 |" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-text">Эл. почта:</div>
+                                        <input type="email" name="email" class="fg-mr" placeholder="svetlanaprincesskamail.ru">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-text">Сообщение:</div>
+                                        <textarea id="textarea" name="text" rows="5" placeholder="Essie представили новую линейку лаков для ногтей Gel Couture Nail, включившую в себя 42 оттенка лаков для ногтей. По сути, новая коллекция Essie представляет из себя линейку. Essie представили новую линейку лаков для ногтей Gel Couture Nail."></textarea>
+                                    </div>
+                                    <div class="form-group-end">
+                                        <input id="check-1" type="checkbox" name="check-1" class="checkbox">
+                                        <!-- <span class="style-checkbox"></span> -->
+                                        <label for="check-1" class="form-text">Проставляя «галку» и далее нажимая кнопку «Принимаю», я даю согласие в его полном изложении на обработку через сайт своих персональных данных.</label>
+                                    </div>
+                                    <button id="send-btn-form" class="fg-send" type="submit" value="Send">Отправить</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="wrap-box2">

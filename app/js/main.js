@@ -1,6 +1,6 @@
 //#1grn Анимация при прокрутке страницы на JavaScript и CSS
 
-var isScrolling = false;
+let isScrolling = false;
 
 // События прокрутки
 window.addEventListener("scroll", throttleScroll, false);
@@ -19,12 +19,12 @@ function throttleScroll(e) {
 
 document.addEventListener("DOMContentLoaded", scrolling, false);
 
-var wrapbox3 = document.querySelector(".wrap-box3");
-var wrapbox4 = document.querySelector(".wrap-box4");
-var wrapbox5 = document.querySelector(".wrap-box5");
-var wrapbox6 = document.querySelector(".wrap-box6");
-var bgVideo = document.querySelector(".background-video");
-var bgImage = document.querySelector(".background-img");
+let wrapbox3 = document.querySelector(".wrap-box3");
+let wrapbox4 = document.querySelector(".wrap-box4");
+let wrapbox5 = document.querySelector(".wrap-box5");
+let wrapbox6 = document.querySelector(".wrap-box6");
+let bgVideo = document.querySelector(".background-video");
+let bgImage = document.querySelector(".background-img");
 
 function scrolling() {
 
@@ -108,11 +108,11 @@ function scrolling() {
 function isPartiallyVisible(el) {
     // Определение видимых элементов
     // Возвращает прямоугольник, который ограничивает видимую область значениями: относительно верха, низа страницы, левого и правого направлений, а также относительно левого верхнего угла браузера и его основных свойств (ширины и высоты окна).
-    var elementBoundary = el.getBoundingClientRect();
+    let elementBoundary = el.getBoundingClientRect();
 
-    var top = elementBoundary.top;
-    var bottom = elementBoundary.bottom;
-    var height = elementBoundary.height;
+    let top = elementBoundary.top;
+    let bottom = elementBoundary.bottom;
+    let height = elementBoundary.height;
 
     // Свойство window.innerWidth возвращают ширину окна браузера
     // Свойство window.innerHeight возвращают высоту окна браузера
@@ -122,72 +122,29 @@ function isPartiallyVisible(el) {
 // Определение полностью видимых элементов, возвращает true или false
 function isFullyVisible(el) {
     // Определение видимых элементов
-    var elementBoundary = el.getBoundingClientRect();
+    let elementBoundary = el.getBoundingClientRect();
 
-    var top = elementBoundary.top;
-    var bottom = elementBoundary.bottom;
+    let top = elementBoundary.top;
+    let bottom = elementBoundary.bottom;
 
     // Возвращают высоту окна браузера
     return ((top >= 0) && (bottom <= window.innerHeight));
 }
 
 
-// //#1grn Раскрытие меню
-// function collapseSection(element) {
-//     // Получаем высоту внутреннего содержимого элемента, независимо от его фактического размера
-//     var sectionHeight = element.scrollHeight;
+// ScrollBar 
+(function($) {
+    $(window).on("load", function() {
+        $("#write").mCustomScrollbar({
+            theme: "my-theme"
+        });
+    });
+})(jQuery);
 
-//     // Временно отключаем все переходы css
-//     var elementTransition = element.style.transition;
-//     element.style.transition = '';
-
-//     // В следующем кадре (как только предыдущее изменение стиля вступило в силу),
-//     // явно устанавливаем высоту элемента равной его текущей высоте в пикселях, поэтому мы
-//     // не переходим из "авто"
-//     requestAnimationFrame(function() {
-//         element.style.height = sectionHeight + 'px';
-//         element.style.transition = elementTransition;
-
-//         // В следующем кадре (как только предыдущее изменение стиля вступило в силу),
-//         // есть переход элемента на высоту: 0
-//         requestAnimationFrame(function() {
-//             element.style.height = 0 + 'px';
-//         });
-//     });
-
-//     // Помечаем раздел как «свернутый в настоящий момент»
-//     element.setAttribute('data-collapsed', 'true');
-// }
-
-// function expandSection(element) {
-//     // Получаем высоту внутреннего содержимого элемента, независимо от его фактического размера
-//     var sectionHeight = element.scrollHeight;
-
-//     // Получаем переход элемента на высоту его внутреннего содержимого
-//     element.style.height = sectionHeight + 'px';
-
-//     // Когда завершится следующий переход css (который должен быть тот, который мы только что запустили)
-//     element.addEventListener('transitionend', function(e) {
-//         // Удаляем этот прослушиватель событий, чтобы он запускался только один раз
-//         element.removeEventListener('transitionend', arguments.callee);
-
-//         // Удаляем "высоту" из встроенных стилей элемента, чтобы он мог вернуться к своему начальному значению
-//         element.style.height = null;
-//     });
-
-//     // Помечаем раздел как «в настоящее время не свернутый»
-//     element.setAttribute('data-collapsed', 'false');
-// }
-
-// // Производить действие при наведении мышки 
-// document.querySelector('.menu-box').addEventListener('mouseover', function(e) {
-//     var section = document.querySelector('.menu_categor');
-//     var isCollapsed = section.getAttribute('data-collapsed') === 'true';
-
-//     if (isCollapsed) {
-//         expandSection(section)
-//         section.setAttribute('data-collapsed', 'false')
-//     } else {
-//         collapseSection(section)
-//     }
-// });
+(function($) {
+    $(window).on("load", function() {
+        $("#textarea").mCustomScrollbar({
+            theme: "my-theme"
+        });
+    });
+})(jQuery);

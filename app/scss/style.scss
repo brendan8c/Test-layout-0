@@ -115,8 +115,10 @@
     }
     &-btn {
         position: relative;
-        text-align: center;
         margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &--click {
             @include f700;
             font-size: 16px;
@@ -128,6 +130,9 @@
             height: 50px;
             background-color: #f08b98;
             border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
     &-item {
@@ -455,7 +460,6 @@
     }
 }
 
-// ===========================================================================
 .user {
     display: flex;
     li {
@@ -503,3 +507,208 @@
         }
     }
 }
+
+// Forma
+// ===========================================================================
+.box_1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    .title {
+        @include f700;
+        font-size: 28px;
+        line-height: 34px;
+        color: #000;
+    }
+    .close {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 12px;
+        content: "";
+        height: 25px;
+        width: 2px;
+        background-color: #333;
+    }
+}
+
+.box_2 {
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        .form-text {
+            @include f500;
+            font-size: 16px;
+            line-height: 18px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        .fg-mr {
+            // width: 100%;
+            width: 440px;
+            min-width: 45%;
+            height: 50px;
+            background-color: rgba(240, 139, 152, 0.05);
+            border: 2px solid #F08B98;
+            box-sizing: border-box;
+            border-radius: 100px;
+            outline: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            @include f500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000000;
+        }
+        #textarea {
+            // position: relative;
+            // width: 100%;
+            // height: 100%;
+            width: 440px;
+            height: 246px;
+            background-color: rgba(240, 139, 152, 0.05);
+            border: 2px solid rgba(240, 139, 152, 0.3);
+            box-sizing: border-box;
+            border-radius: 25px;
+            outline: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            @include f500;
+            font-size: 16px;
+            line-height: 22px;
+            color: #000000;
+            margin-bottom: 10px;
+            resize: none;
+        }
+    }
+    .form-group-end {
+        display: flex;
+        position: relative;
+        margin-bottom: 10px;
+        .form-text {
+            width: 407px;
+            height: 48px;
+            @include fs500;
+            font-size: 12px;
+            line-height: 16px;
+            margin-left: 35px;
+        }
+        .checkbox {
+            position: absolute;
+            left: 0;
+            z-index: -1;
+            opacity: 0;
+        }
+        // Создадим поддельный чекбокс
+        .checkbox+label {
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+        }
+        .checkbox+label::before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: -5px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 2px solid #F08B98;
+            border-radius: 6px;
+            margin-right: 0.5em;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+        }
+        // Cтили при нахождении элемента в состоянии checked
+        .checkbox:checked+label::before {
+            border-color: #F08B98;
+            background-color: #F08B98;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+        }
+        // Стили чекбокса при нахождении его в состояниях hover, active, focus и disabled.
+        /* Стили при наведении курсора на checkbox */
+        .checkbox:not(:disabled):not(:checked)+label:hover::before {
+            border-color: #F08B98;
+        }
+        /* Стили для активного состояния чекбокса (при нажатии на него) */
+        .checkbox:not(:disabled):active+label::before {
+            background-color: #FAD8DD;
+            border-color: #FAD8DD;
+        }
+        /* Стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+        .checkbox:focus:not(:checked)+label::before {
+            border-color: #F08B98;
+        }
+    }
+    .fg-send {
+        width: 300px;
+        height: 50px;
+        background-color: #F08B98;
+        border-radius: 100px;
+        color: #ffffff;
+        @include f500;
+        font-size: 16px;
+        line-height: 18px;
+        border: 1px solid #F08B98;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+// CSS modal window (pop-up)
+// ===========================================================================
+.modal__window {
+    position: fixed;
+    z-index: 2;
+    width: 504px;
+    height: 560px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px 0px 20px 30px;
+    .box {
+        height: 1000px;
+    }
+}
+
+#modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#modal:not(:target) {
+    visibility: hidden;
+    opacity: 0;
+}
+
+// ===========================================================================
+// #1grn  cookie - end
+@import 'media';
