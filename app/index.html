@@ -417,23 +417,22 @@
                                 <form enctype="multipart/form-data" id="main-form">
                                     <div class="form-group">
                                         <div class="form-text">Имя:</div>
-                                        <input type="text" name="name" class="fg-mr" placeholder="Кукушкина Светлана">
+                                        <input type="text" name="name" class="fg-mr" placeholder="Кукушкина Светлана" pattern="^[A-Za-zА-Яа-яЁё\s]+$" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-text">Телефон:</div>
-                                        <input type="tel" name="phone" class="fg-mr" placeholder="8904 |" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                                        <input type="tel" name="phone" class="fg-mr" placeholder="8904 |" pattern="(\+79[0-9]{9}|8[0-9]{10})" minlength="18" maxlength="18" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-text">Эл. почта:</div>
-                                        <input type="email" name="email" class="fg-mr" placeholder="svetlanaprincesskamail.ru">
+                                        <input type="email" name="email" class="fg-mr" placeholder="svetlanaprincesskamail.ru" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-text">Сообщение:</div>
                                         <textarea id="textarea" name="text" rows="5" placeholder="Essie представили новую линейку лаков для ногтей Gel Couture Nail, включившую в себя 42 оттенка лаков для ногтей. По сути, новая коллекция Essie представляет из себя линейку. Essie представили новую линейку лаков для ногтей Gel Couture Nail."></textarea>
                                     </div>
                                     <div class="form-group-end">
-                                        <input id="check-1" type="checkbox" name="check-1" class="checkbox">
-                                        <!-- <span class="style-checkbox"></span> -->
+                                        <input id="check-1" type="checkbox" name="check-1" class="checkbox" required>
                                         <label for="check-1" class="form-text">Проставляя «галку» и далее нажимая кнопку «Принимаю», я даю согласие в его полном изложении на обработку через сайт своих персональных данных.</label>
                                     </div>
                                     <button id="send-btn-form" class="fg-send" type="submit" value="Send">Отправить</button>
