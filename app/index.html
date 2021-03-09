@@ -421,11 +421,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="form-text">Телефон:</div>
-                                        <input type="tel" name="phone" class="fg-mr" placeholder="8904 |" pattern="(\+79[0-9]{9}|8[0-9]{10})" minlength="18" maxlength="18" required>
+                                        <input type="tel" name="phone" class="fg-mr" placeholder="8904 |" pattern="(\+79[0-9]{9}|8[0-9]{10})" minlength="11" maxlength="12" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-text">Эл. почта:</div>
-                                        <input type="email" name="email" class="fg-mr" placeholder="svetlanaprincesskamail.ru" required>
+                                        <input type="email" name="email" class="fg-mr" placeholder="svetlanaprincesskamail.ru" pattern="(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-text">Сообщение:</div>
