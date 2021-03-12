@@ -137,15 +137,16 @@
     }
     &-item {
         position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid rgb(255, 136, 0);
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #fff;
-        width: 1300px;
-        height: 300px;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        max-width: 1300px;
+        min-height: 300px;
         margin: auto;
         border-radius: 50px 50px 0 0;
         &--text {
@@ -158,9 +159,14 @@
             margin-top: 25px;
             margin-bottom: 25px;
         }
+        .box_wrapper {
+            display: flex;
+            justify-content: center;
+        }
         &--wrap {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             justify-content: space-around;
             width: 100%;
             .box-item {
