@@ -148,3 +148,118 @@ function isFullyVisible(el) {
         });
     });
 })(jQuery);
+
+//#1grn Валидация форм. Паттерн разрешает все упомянутые сиволы, другие удалит.
+document.querySelector('#form-name').addEventListener('input', function() {
+    this.value = this.value
+        .replace(/\d/gm, '')
+        .replace(/ {2,}/, ' ')
+        .replace(/^ {1,}/, '')
+        .replace(/[^A-Za-zА-Яа-яЁё\s]/, '')
+        .replace(/^([A-Za-zА-Яа-яЁё]+) ([A-Za-zА-Яа-яЁё]+)( {1}|)/gm, '$1 $2');
+});
+
+document.querySelector('#form-phone').addEventListener('input', function() {
+    this.value = this.value
+        .replace(/[^0-9]/, '')
+});
+
+//#1grn Валидация формы
+let formName = document.getElementById("form-name");
+let formPhone = document.getElementById("form-phone");
+let formEmail = document.getElementById("form-email");
+let signal1 = document.querySelector(".signal1");
+let signal2 = document.querySelector(".signal2");
+let signal3 = document.querySelector(".signal3");
+let checkbox = document.querySelector(".checkbox");
+let sendBtnForm = document.getElementById("send-btn-form");
+// Можно использовать любое из этих выражений, резулютат один и тот-же. 
+// sendBtnForm.setAttribute("disabled", true); // Изменяет значение существующего атрибута у выбранного элемента.
+sendBtnForm.disabled = true; // Disabled отображает то, что кнопка является "Boolean" и отключена.
+
+// Список паттернов 
+let validation = {
+    isEmailAddress: function(str) {
+        let regexp = new RegExp(/(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}/);
+        return regexp.test(str); // Сравниваем паттерн RegExp с полученным значением value из input'a, возвращает логическое значение "boolean" true или false.
+    },
+    isPhoneNumber: function(str) {
+        let regexp = new RegExp(/8[0-9]{10}/);
+        return regexp.test(str);
+    },
+    isNameUser: function(str) {
+        let regexp = new RegExp(/^[A-Za-zА-Яа-яЁё\s]+$/);
+        return regexp.test(str);
+    }
+};
+
+// Создаём событие "onblur", когда элемент "input" теряет фокус.
+// Событие focus вызывается в момент фокусировки, а blur – когда элемент теряет фокус.
+// Так-же можно использовать "oninput" за место "onblur".
+formEmail.onblur = function emailo() {
+    let answer_Email = validation.isEmailAddress(formEmail.value); // Передаём значение input.value в паттерн для проверки и присваиваем переменную, для значения "boolean".
+    if (answer_Email) { // Передаём в условие переменную которая принимает значения "boolean".
+        // Если значение "boolean" = true
+        formEmail.classList.remove('invalid');
+        signal3.classList.remove('span-on');
+        formEmail.classList.add('valid');
+    } else {
+        // Если значение "boolean" = false
+        formEmail.classList.remove('valid');
+        formEmail.classList.add('invalid');
+        signal3.classList.add('span-on');
+    };
+};
+
+formPhone.onblur = function() {
+    let answer_Phone = validation.isPhoneNumber(formPhone.value);
+    if (answer_Phone) {
+        formPhone.classList.remove('invalid');
+        signal2.classList.remove('span-on');
+        formPhone.classList.add('valid');
+    } else {
+        formPhone.classList.remove('valid');
+        formPhone.classList.add('invalid');
+        signal2.classList.add('span-on');
+    };
+};
+
+formName.onblur = function() {
+    let answer_Name = validation.isNameUser(formName.value);
+    if (answer_Name) {
+        formName.classList.remove('invalid');
+        signal1.classList.remove('span-on');
+        formName.classList.add('valid');
+    } else {
+        formName.classList.remove('valid');
+        formName.classList.add('invalid');
+        signal1.classList.add('span-on');
+    };
+};
+
+
+// Условия для кнопки. Если все input.value прошли валидацию.
+// Событие input срабатывает каждый раз при изменении значения в поле.
+// Создаём обработчики событий с событием "input" с ссылкой на функцию-обработчик "validate".
+formName.addEventListener('input', validate);
+formEmail.addEventListener('input', validate);
+formPhone.addEventListener('input', validate);
+checkbox.addEventListener('input', validate);
+
+function validate() {
+    // Передаём значение input.value каждой формы в паттерн для проверки и присваиваем переменную, для получения значения "boolean".
+    let answer_Name = validation.isNameUser(formName.value);
+    let answer_Email = validation.isEmailAddress(formEmail.value);
+    let answer_Phone = validation.isPhoneNumber(formPhone.value);
+    let answer_Checkbox = checkbox.checked; // Проверяем в каком состоянии checkbox. Checked имеет логическое значение "Boolean" true/false.
+
+    if (answer_Name && answer_Email && answer_Phone && answer_Checkbox) {
+        // Если значение "boolean" = true
+        sendBtnForm.classList.add('valid-btn');
+        sendBtnForm.disabled = false;
+    } else {
+        // Если значение "boolean" = false
+        sendBtnForm.classList.remove('valid-btn');
+        sendBtnForm.disabled = true;
+    };
+};

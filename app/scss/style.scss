@@ -546,8 +546,43 @@
     }
 }
 
+#main-form {
+    span {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        @include f500;
+        font-size: 10px;
+        color: #FF304C;
+        opacity: 0;
+    }
+}
+
+.valid {
+    background: url(../img/true.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 404px 13px;
+}
+
+.invalid {
+    background: url(../img/false.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 404px 13px;
+}
+
+.span-on {
+    opacity: 1;
+}
+
+.valid-btn {
+    opacity: 1 !important;
+}
+
 .box_2 {
     .form-group {
+        position: relative;
         display: flex;
         flex-direction: column;
         margin-bottom: 15px;
@@ -674,6 +709,7 @@
         position: relative;
         cursor: pointer;
         outline: none;
+        opacity: 0.2;
     }
 }
 
