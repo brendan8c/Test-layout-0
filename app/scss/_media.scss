@@ -35,8 +35,6 @@
         width: 140px;
     }
     .background-wrapper .header__wrap {
-        // width: 0 !important;
-        // display: none;
         transform-origin: 50% 20%;
         transition: all 0.3s;
         transform: scaleY(0);
@@ -62,10 +60,8 @@
         right: 33px;
     }
     .background-wrapper .menu {
-        // display: none;
         display: block;
         position: absolute;
-        // top: 137px;
         top: 67px;
         left: 0;
         right: 0;
@@ -84,14 +80,11 @@
         margin-left: 15px !important;
     }
     .background-wrapper .user {
-        // display: none;
-        // display: block;
         position: absolute;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         height: 67px;
-        // top: 70px;
         left: 0;
         right: 0;
         width: 100%;
@@ -204,7 +197,6 @@
 // ————————==================== Mobile version ====================————————
 @media (max-width: 599px) {
     .background-hat {
-        // background-color: transparent;
         background-color: #00000000;
     }
     .background-item--wrap .box_wrapper {
@@ -226,6 +218,27 @@
     .background-text {
         font-size: 40px;
         line-height: 50;
+    }
+    .background-item--wrap .box-item_0 {
+        background-image: url(../img/item_0.1.jpg);
+    }
+    .background-item--wrap .box-item_1 {
+        background-image: url(../img/item_1.1.jpg);
+    }
+    .background-item--wrap .box-item_2 {
+        background-image: url(../img/item_2.1.jpg);
+    }
+    .background-item--wrap .box-item_3 {
+        background-image: url(../img/item_3.1.jpg);
+    }
+    .background-item--wrap .box-item_4 {
+        background-image: url(../img/item_4.1.jpg);
+    }
+    .background-item--wrap .box-item_5 {
+        background-image: url(../img/item_5.1.jpg);
+    }
+    .background-item--wrap .box-item_6 {
+        background-image: url(../img/item_6.1.jpg);
     }
 }
 
