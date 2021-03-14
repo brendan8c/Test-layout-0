@@ -38,3 +38,40 @@
 .mCSB_scrollTools {
     opacity: 1;
 }
+
+//#1grn Header menu button
+.header__menu-btn {
+    // width: 26px;
+    display: none;
+    padding-left: 15px;
+    width: 34px;
+}
+
+.header__menu-row {
+    width: 100%;
+    background-color: #000;
+    height: 3px;
+    margin-bottom: 4px;
+}
+
+.header__menu-row1 {
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 50%;
+    box-shadow: 0 0 1px #fff;
+}
+
+.header__menu-row2 {
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+.header__menu-row3 {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+}

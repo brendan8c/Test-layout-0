@@ -1,82 +1,79 @@
-@import 'vars';
-@import 'fonts';
-@import 'global';
-@import 'animation';
+@import "vars";
+@import "fonts";
+@import "global";
+@import "animation";
 // ============================
-.wrapper {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-}
-
 .wrap-box1 {
-    height: 70px;
+    // The tes line!
+    // border: 3px dashed #000000;
 }
 
 .wrap-box2 {
-    height: 200px;
+    // The tes line!
+    // border: 3px dashed #ff9900;
 }
 
 .wrap-box3 {
-    position: relative;
-    background-color: #fff;
-    width: 1300px;
-    height: 100px;
-    margin: auto;
-    bottom: -100px;
     // The tes line!
-    // border: 3px dashed #ff9900;
+    // border: 3px dashed #000000;
 }
 
 .wrap-box4 {
-    position: relative;
-    background-color: #fff;
-    width: 1300px;
-    height: 100px;
-    margin: auto;
-    bottom: -100px;
-    // The tes line!
-    // border: 3px dashed #000000;
-}
-
-.wrap-box5 {
-    position: relative;
-    background-color: #fff;
-    width: 1300px;
-    height: 100px;
-    margin: auto;
-    bottom: -100px;
     // The tes line!
     // border: 3px dashed #ff9900;
 }
 
-.wrap-box6 {
+.wrap_box-blur {
     position: relative;
     background-color: #fff;
-    width: 1300px;
+    width: 100%;
     height: 100px;
     margin: auto;
-    bottom: -100px;
-    // The tes line!
-    // border: 3px dashed #000000;
+    bottom: 0;
+    z-index: 2;
+}
+
+.hamburger_true {
+    // display: flex !important;
+    transform: scaleX(1) !important;
+}
+
+.background_hat-true {
+    background: #ffffff !important;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.132586%);
+        width: 100%;
+        height: 4px;
+        z-index: 3;
+    }
 }
 
 .background {
+    height: 100vh;
     &-hat {
         position: fixed;
         display: flex;
         align-items: center;
         height: 70px;
         width: 100%;
-        // Прозрачность пришлось отключить из за наследования "выпадающим меню".
-        // opacity: .9;
         background-color: rgba(255, 255, 255, 0.9);
-        z-index: 1;
+        z-index: 3;
     }
     &-wrapper {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .header__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
     &-img {
         position: fixed;
@@ -86,7 +83,7 @@
         background-size: cover;
         height: 100%;
         width: 100%;
-        z-index: -1;
+        z-index: 1;
     }
     &-video {
         position: fixed;
@@ -97,13 +94,19 @@
         min-height: 100%;
         width: auto;
         height: auto;
-        z-index: -2;
+        z-index: 0;
     }
     &_center {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         flex: 1;
+        z-index: 2;
     }
     &-text {
         position: relative;
@@ -140,7 +143,6 @@
         left: 0;
         right: 0;
         bottom: 0;
-        border: 2px solid rgb(255, 136, 0);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -149,6 +151,9 @@
         min-height: 300px;
         margin: auto;
         border-radius: 50px 50px 0 0;
+        z-index: 2;
+        // The tes line!
+        // border: 3px dashed #ff8800;
         &--text {
             @include f700;
             font-size: 28px;
@@ -182,10 +187,10 @@
                 align-items: center;
                 padding-left: 30px;
                 padding-right: 30px;
-                transition: all .4s;
+                transition: all 0.4s;
                 &:hover {
                     border-radius: 6px;
-                    box-shadow: -1px -1px 5px #F08B98, 1px 1px 5px #F08B98, -1px 1px 5px #F08B98, 1px -1px 5px #F08B98;
+                    box-shadow: -1px -1px 5px #f08b98, 1px 1px 5px #f08b98, -1px 1px 5px #f08b98, 1px -1px 5px #f08b98;
                 }
             }
             .box-item_wrap {
@@ -231,6 +236,31 @@
     }
 }
 
+.logo_mobile {
+    display: none;
+    &-h {
+        background-image: url(../img/logo.svg);
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 139px;
+        cursor: default;
+    }
+}
+
+.basket_burg {
+    width: 30px;
+    height: 26px;
+    display: none;
+    &:hover {
+        svg {
+            path {
+                stroke: #f08b98;
+                fill: #f08b98;
+            }
+        }
+    }
+}
+
 .menu {
     display: flex;
     &-link {
@@ -253,9 +283,9 @@
                 top: 60px;
                 display: inline-block;
                 border-right: 11px solid transparent;
-                border-bottom: 11px solid #CCC;
+                border-bottom: 11px solid #ccc;
                 border-left: 10px solid transparent;
-                border-bottom-color: #F08B98;
+                border-bottom-color: #f08b98;
             }
             &::after {
                 content: "";
@@ -324,12 +354,12 @@
         border-radius: 1px;
         transform: scaleY(0);
         transform-origin: 50% 0;
-        height: 260px;
+        min-height: 260px;
         width: 100%;
         background-color: #ffffff;
-        border: 1px solid #F08B98;
+        border: 1px solid #f08b98;
         z-index: -1;
-        transition: all .3s;
+        transition: all 0.3s;
         overflow: hidden;
         &-photo {
             padding-top: 30px;
@@ -411,7 +441,7 @@
             line-height: 22px;
             color: #000;
             &:hover a {
-                transition: all .2s;
+                transition: all 0.2s;
                 color: #f08b98;
             }
             .name-line {
@@ -420,19 +450,19 @@
                 border-radius: 50px;
                 mix-blend-mode: normal;
                 opacity: 0.3;
-                border: 1px solid #FA7385;
+                border: 1px solid #fa7385;
             }
         }
     }
     &_li {
         &:hover {
-            transition: all .5s;
+            transition: all 0.5s;
             .menu-num {
-                transition: all .5s;
-                color: #F08B98;
+                transition: all 0.5s;
+                color: #f08b98;
             }
             .menu-arrow {
-                transition: all .5s;
+                transition: all 0.5s;
                 -o-transform: scaleY(-1);
                 -ms-transform: scaleY(-1);
                 -moz-transform: scaleY(-1);
@@ -440,7 +470,7 @@
                 transform: scaleY(-1);
                 svg {
                     path {
-                        stroke: #F08B98;
+                        stroke: #f08b98;
                     }
                 }
             }
@@ -448,19 +478,19 @@
     }
     &_list-1 {
         &:hover .menu_categor-1 {
-            transition: all .3s;
+            transition: all 0.3s;
             transform: scaleX(1);
         }
     }
     &_list-2 {
         &:hover .menu_categor-2 {
-            transition: all .3s;
+            transition: all 0.3s;
             transform: scaleX(1);
         }
     }
     &_list-3 {
         &:hover .menu_categor-3 {
-            transition: all .3s;
+            transition: all 0.3s;
             transform: scaleX(1);
         }
     }
@@ -482,8 +512,8 @@
         &:hover {
             svg {
                 path {
-                    stroke: #F08B98;
-                    fill: #F08B98;
+                    stroke: #f08b98;
+                    fill: #f08b98;
                 }
             }
         }
@@ -494,8 +524,8 @@
         &:hover {
             svg {
                 path {
-                    stroke: #F08B98;
-                    fill: #F08B98;
+                    stroke: #f08b98;
+                    fill: #f08b98;
                 }
             }
         }
@@ -506,8 +536,8 @@
         &:hover {
             svg {
                 path {
-                    stroke: #F08B98;
-                    fill: #F08B98;
+                    stroke: #f08b98;
+                    fill: #f08b98;
                 }
             }
         }
@@ -559,7 +589,7 @@
         right: 5px;
         @include f500;
         font-size: 10px;
-        color: #FF304C;
+        color: #ff304c;
         opacity: 0;
     }
 }
@@ -605,7 +635,7 @@
             min-width: 45%;
             height: 50px;
             background-color: rgba(240, 139, 152, 0.05);
-            border: 2px solid #F08B98;
+            border: 2px solid #f08b98;
             box-sizing: border-box;
             border-radius: 100px;
             outline: none;
@@ -664,7 +694,7 @@
             user-select: none;
         }
         .checkbox+label::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 2px;
             top: -5px;
@@ -673,7 +703,7 @@
             height: 20px;
             flex-shrink: 0;
             flex-grow: 0;
-            border: 2px solid #F08B98;
+            border: 2px solid #f08b98;
             border-radius: 6px;
             margin-right: 0.5em;
             background-repeat: no-repeat;
@@ -682,35 +712,35 @@
         }
         // Cтили при нахождении элемента в состоянии checked
         .checkbox:checked+label::before {
-            border-color: #F08B98;
-            background-color: #F08B98;
+            border-color: #f08b98;
+            background-color: #f08b98;
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
         }
         // Стили чекбокса при нахождении его в состояниях hover, active, focus и disabled.
         /* Стили при наведении курсора на checkbox */
         .checkbox:not(:disabled):not(:checked)+label:hover::before {
-            border-color: #F08B98;
+            border-color: #f08b98;
         }
         /* Стили для активного состояния чекбокса (при нажатии на него) */
         .checkbox:not(:disabled):active+label::before {
-            background-color: #FAD8DD;
-            border-color: #FAD8DD;
+            background-color: #fad8dd;
+            border-color: #fad8dd;
         }
         /* Стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
         .checkbox:focus:not(:checked)+label::before {
-            border-color: #F08B98;
+            border-color: #f08b98;
         }
     }
     .fg-send {
         width: 300px;
         height: 50px;
-        background-color: #F08B98;
+        background-color: #f08b98;
         border-radius: 100px;
         color: #ffffff;
         @include f500;
         font-size: 16px;
         line-height: 18px;
-        border: 1px solid #F08B98;
+        border: 1px solid #f08b98;
         text-align: center;
         position: relative;
         cursor: pointer;
@@ -723,7 +753,7 @@
 // ===========================================================================
 .modal__window {
     position: fixed;
-    z-index: 2;
+    // z-index: 2;
     width: 504px;
     height: 560px;
     background-color: #fff;
@@ -742,10 +772,12 @@
     top: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
+    // z-index: 5;
     background-color: rgba(0, 0, 0, 0.9);
 }
 
+// :not находит элементы не соответсвующие селектру :target
+// :target применяется к целевому элементу (к идентификатору, который указан в адресной строке браузера) к разделу #modal.
 #modal:not(:target) {
     visibility: hidden;
     opacity: 0;
@@ -753,4 +785,4 @@
 
 // ===========================================================================
 // #1grn  cookie - end
-@import 'media';
+@import "media";

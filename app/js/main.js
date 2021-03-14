@@ -19,24 +19,24 @@ function throttleScroll(e) {
 
 document.addEventListener("DOMContentLoaded", scrolling, false);
 
+let wrapbox1 = document.querySelector(".wrap-box1");
+let wrapbox2 = document.querySelector(".wrap-box2");
 let wrapbox3 = document.querySelector(".wrap-box3");
 let wrapbox4 = document.querySelector(".wrap-box4");
-let wrapbox5 = document.querySelector(".wrap-box5");
-let wrapbox6 = document.querySelector(".wrap-box6");
 let bgVideo = document.querySelector(".background-video");
 let bgImage = document.querySelector(".background-img");
 
 function scrolling() {
 
     // Полностью видимые элементы
-    if (isFullyVisible(wrapbox3)) {
-        wrapbox3.classList.add("active");
+    if (isFullyVisible(wrapbox1)) {
+        wrapbox1.classList.add("active");
         bgVideo.classList.add("opacity_1");
         bgVideo.classList.remove("opacity_0");
         bgImage.classList.add("opacity_1");
         bgImage.classList.remove("opacity_0");
     } else {
-        wrapbox3.classList.remove("active");
+        wrapbox1.classList.remove("active");
         bgVideo.classList.remove("opacity_1");
         bgVideo.classList.add("opacity_0");
         bgImage.classList.remove("opacity_1");
@@ -44,8 +44,8 @@ function scrolling() {
     }
 
     // Полностью видимые элементы
-    if (isFullyVisible(wrapbox4)) {
-        wrapbox4.classList.add("active");
+    if (isFullyVisible(wrapbox2)) {
+        wrapbox2.classList.add("active");
         bgVideo.classList.add("opacity_2");
         bgVideo.classList.remove("opacity_0");
         bgVideo.classList.remove("opacity_1");
@@ -53,14 +53,14 @@ function scrolling() {
         bgImage.classList.remove("opacity_0");
         bgImage.classList.remove("opacity_1");
     } else {
-        wrapbox4.classList.remove("active");
+        wrapbox2.classList.remove("active");
         bgVideo.classList.remove("opacity_2");
         bgImage.classList.remove("opacity_2");
     }
 
     // Полностью видимые элементы
-    if (isFullyVisible(wrapbox5)) {
-        wrapbox5.classList.add("active");
+    if (isFullyVisible(wrapbox3)) {
+        wrapbox3.classList.add("active");
         bgVideo.classList.add("opacity_3");
         bgVideo.classList.remove("opacity_0");
         bgVideo.classList.remove("opacity_1");
@@ -70,14 +70,14 @@ function scrolling() {
         bgImage.classList.remove("opacity_1");
         bgImage.classList.remove("opacity_2");
     } else {
-        wrapbox5.classList.remove("active");
+        wrapbox3.classList.remove("active");
         bgVideo.classList.remove("opacity_3");
         bgImage.classList.remove("opacity_3");
     }
 
     // Полностью видимые элементы
-    if (isFullyVisible(wrapbox6)) {
-        wrapbox6.classList.add("active");
+    if (isFullyVisible(wrapbox4)) {
+        wrapbox4.classList.add("active");
         bgVideo.classList.add("opacity_4");
         bgVideo.classList.remove("opacity_0");
         bgVideo.classList.remove("opacity_1");
@@ -89,17 +89,17 @@ function scrolling() {
         bgImage.classList.remove("opacity_2");
         bgImage.classList.remove("opacity_3");
     } else {
-        wrapbox6.classList.remove("active");
+        wrapbox4.classList.remove("active");
         bgVideo.classList.remove("opacity_4");
         bgImage.classList.remove("opacity_4");
     }
 
-    // Частично видимые элементы
-    // if (isPartiallyVisible(wrapbox4)) {
-    //     wrapbox4.classList.add("half-active");
+    // Частично видимые элементы (—=the_test=—)
+    // if (isPartiallyVisible(wrapbox5)) {
+    //     wrapbox5.classList.add("half-active");
     //     bgVideo.classList.add("opacity_H1");
     // } else {
-    //     wrapbox4.classList.remove("half-active");
+    //     wrapbox5.classList.remove("half-active");
     //     bgVideo.classList.remove("opacity_H1");
     // }
 }
@@ -132,7 +132,7 @@ function isFullyVisible(el) {
 }
 
 
-// ScrollBar 
+//#1grn ScrollBar 
 (function($) {
     $(window).on("load", function() {
         $("#write").mCustomScrollbar({
@@ -148,6 +148,26 @@ function isFullyVisible(el) {
         });
     });
 })(jQuery);
+
+// С выпадающим меню у выпадающего меню баги у этого плагина если включить кастомный скролл 
+// (function($) {
+//     $(window).on("load", function() {
+//         $("#menu_scroll").mCustomScrollbar({
+//             theme: "my-theme"
+//         });
+//     });
+// })(jQuery);
+
+// #1grn Обрабатывает событие кнопки открытия и закрытия формы
+let btnBlur = document.querySelector(".background-btn--click");
+let backCenter = document.querySelector(".background_center");
+let btnCloseBlur = document.querySelector(".forma_blur");
+btnBlur.addEventListener('click', function() {
+    backCenter.style.zIndex = 3;
+});
+btnCloseBlur.addEventListener('click', function() {
+    backCenter.style.zIndex = 2;
+});
 
 //#1grn Валидация форм. Паттерн разрешает все упомянутые сиволы, другие удалит.
 document.querySelector('#form-name').addEventListener('input', function() {
@@ -263,3 +283,33 @@ function validate() {
         sendBtnForm.disabled = true;
     };
 };
+
+
+//#1grn Hamburger menu
+let Hamburger = document.querySelector(".header__menu-btn"); // Кнопка
+let headerWrap = document.querySelector(".header__wrap"); // Меню которое выезжает
+let backHat = document.querySelector(".background-hat"); // Шапка сайта
+
+// Событие клика по кнопке гамбургера
+Hamburger.addEventListener("click", toggleMenu);
+// Проверяем есть-ли в меню класс или нет 
+headerWrap.classList.contains("hamburger_true");
+backHat.classList.contains("background_hat-true");
+
+function toggleMenu() {
+    if (headerWrap.classList.contains("hamburger_true")) {
+        headerWrap.classList.remove("hamburger_true");
+        backHat.classList.remove("background_hat-true");
+    } else {
+        headerWrap.classList.add("hamburger_true");
+        backHat.classList.add("background_hat-true");
+    }
+};
+
+let hambTrue = document.querySelectorAll(".hamburger_true");
+
+hambTrue.forEach(
+    function(menuLink) {
+        menuLink.addEventListener("click", toggleMenu);
+    }
+);
