@@ -296,6 +296,7 @@ Hamburger.addEventListener("click", toggleMenu);
 headerWrap.classList.contains("hamburger_true");
 backHat.classList.contains("background_hat-true");
 
+// Включать и выключать меню при нажатии на гамбургер
 function toggleMenu() {
     if (headerWrap.classList.contains("hamburger_true")) {
         headerWrap.classList.remove("hamburger_true");
