@@ -91,7 +91,6 @@
         position: relative;
         @include f700;
         font-size: 72px;
-        line-height: 84px;
         color: #fff;
         text-align: center;
     }
@@ -204,6 +203,7 @@
 }
 
 .logo {
+    margin-left: 15px;
     &-h {
         background-image: url(../img/logo.svg);
         background-repeat: no-repeat;
@@ -228,12 +228,50 @@
     width: 30px;
     height: 26px;
     display: none;
-    &:hover {
+    &:active {
         svg {
             path {
                 stroke: #f08b98;
                 fill: #f08b98;
             }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .basket_burg:hover {
+        svg {
+            path {
+                stroke: #f08b98;
+                fill: #f08b98;
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .menu li:hover .menu-triangle {
+        transform: scaleX(1);
+        &::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 60px;
+            display: inline-block;
+            border-right: 11px solid transparent;
+            border-bottom: 11px solid #ccc;
+            border-left: 10px solid transparent;
+            border-bottom-color: #f08b98;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 62px;
+            display: inline-block;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+            border-left: 10px solid transparent;
         }
     }
 }
@@ -251,7 +289,7 @@
         height: 70px;
     }
     li {
-        &:hover .menu-triangle {
+        &:active .menu-triangle {
             transform: scaleX(1);
             &::before {
                 content: "";
@@ -417,7 +455,7 @@
             font-size: 14px;
             line-height: 22px;
             color: #000;
-            &:hover a {
+            &:active a {
                 transition: all 0.2s;
                 color: #f08b98;
             }
@@ -432,7 +470,7 @@
         }
     }
     &_li {
-        &:hover {
+        &:active {
             transition: all 0.5s;
             .menu-num {
                 transition: all 0.5s;
@@ -473,8 +511,39 @@
     }
 }
 
+@media (hover: hover) {
+    .menu_categor-element:hover a {
+        transition: all 0.2s;
+        color: #f08b98;
+    }
+}
+
+@media (hover: hover) {
+    .menu_li:hover {
+        transition: all 0.5s;
+        .menu-num {
+            transition: all 0.5s;
+            color: #f08b98;
+        }
+        .menu-arrow {
+            transition: all 0.5s;
+            -o-transform: scaleY(-1);
+            -ms-transform: scaleY(-1);
+            -moz-transform: scaleY(-1);
+            -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+            svg {
+                path {
+                    stroke: #f08b98;
+                }
+            }
+        }
+    }
+}
+
 .user {
     display: flex;
+    margin-right: 15px;
     li {
         display: flex;
         align-items: center;
@@ -486,7 +555,7 @@
     .basket {
         width: 30px;
         height: 26px;
-        &:hover {
+        &:active {
             svg {
                 path {
                     stroke: #f08b98;
@@ -498,7 +567,7 @@
     .favorites {
         width: 30px;
         height: 26px;
-        &:hover {
+        &:active {
             svg {
                 path {
                     stroke: #f08b98;
@@ -510,12 +579,45 @@
     .profile {
         width: 30px;
         height: 26px;
-        &:hover {
+        &:active {
             svg {
                 path {
                     stroke: #f08b98;
                     fill: #f08b98;
                 }
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .user .basket:hover {
+        svg {
+            path {
+                stroke: #f08b98;
+                fill: #f08b98;
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .user .favorites:hover {
+        svg {
+            path {
+                stroke: #f08b98;
+                fill: #f08b98;
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .user .profile:hover {
+        svg {
+            path {
+                stroke: #f08b98;
+                fill: #f08b98;
             }
         }
     }
@@ -571,18 +673,32 @@
     }
 }
 
-.valid {
-    background: url(../img/true.svg);
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 404px 13px;
-}
-
+// .valid {
+//     background: url(../img/true.svg);
+//     background-size: 20px;
+//     background-repeat: no-repeat;
+//     background-position: 404px 13px;
+// }
 .invalid {
     background: url(../img/false.svg);
     background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 404px 13px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 39px;
+    right: 15px;
+}
+
+.valid {
+    background: url(../img/true.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 39px;
+    right: 15px;
 }
 
 .span-on {
@@ -599,6 +715,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 15px;
+        position: relative;
         .form-text {
             @include f500;
             font-size: 16px;

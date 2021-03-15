@@ -435,16 +435,19 @@
                                     <div class="form-text">Имя:</div>
                                     <span class="signal1">Неверно заполнено имя</span>
                                     <input type="text" name="name" class="fg-mr" id="form-name" placeholder="Кукушкина Светлана" pattern="^[A-Za-zА-Яа-яЁё\s]+$" required>
+                                    <div id="valid_name"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-text">Телефон:</div>
                                     <span class="signal2">Неверно заполнен телефон</span>
                                     <input type="tel" name="phone" class="fg-mr" id="form-phone" placeholder="8904 |" pattern="(8[0-9]{10})" minlength="11" maxlength="11" required>
+                                    <div id="valid_phone"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-text">Эл. почта:</div>
                                     <span class="signal3">Неверно заполнена почта</span>
                                     <input type="email" name="email" class="fg-mr" id="form-email" placeholder="svetlanaprincesskamail.ru" pattern="(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}" required>
+                                    <div id="valid_email"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-text">Сообщение:</div>

@@ -162,6 +162,7 @@ function isFullyVisible(el) {
 let btnBlur = document.querySelector(".background-btn--click");
 let backCenter = document.querySelector(".background_center");
 let btnCloseBlur = document.querySelector(".forma_blur");
+
 btnBlur.addEventListener('click', function() {
     backCenter.style.zIndex = 3;
 });
@@ -188,6 +189,9 @@ document.querySelector('#form-phone').addEventListener('input', function() {
 let formName = document.getElementById("form-name");
 let formPhone = document.getElementById("form-phone");
 let formEmail = document.getElementById("form-email");
+let validName = document.getElementById("valid_name");
+let validPhone = document.getElementById("valid_phone");
+let validEmail = document.getElementById("valid_email");
 let signal1 = document.querySelector(".signal1");
 let signal2 = document.querySelector(".signal2");
 let signal3 = document.querySelector(".signal3");
@@ -220,13 +224,13 @@ formEmail.onblur = function emailo() {
     let answer_Email = validation.isEmailAddress(formEmail.value); // Передаём значение input.value в паттерн для проверки и присваиваем переменную, для значения "boolean".
     if (answer_Email) { // Передаём в условие переменную которая принимает значения "boolean".
         // Если значение "boolean" = true
-        formEmail.classList.remove('invalid');
+        validEmail.classList.remove('invalid');
         signal3.classList.remove('span-on');
-        formEmail.classList.add('valid');
+        validEmail.classList.add('valid');
     } else {
         // Если значение "boolean" = false
-        formEmail.classList.remove('valid');
-        formEmail.classList.add('invalid');
+        validEmail.classList.remove('valid');
+        validEmail.classList.add('invalid');
         signal3.classList.add('span-on');
     };
 };
@@ -234,12 +238,12 @@ formEmail.onblur = function emailo() {
 formPhone.onblur = function() {
     let answer_Phone = validation.isPhoneNumber(formPhone.value);
     if (answer_Phone) {
-        formPhone.classList.remove('invalid');
+        validPhone.classList.remove('invalid');
         signal2.classList.remove('span-on');
-        formPhone.classList.add('valid');
+        validPhone.classList.add('valid');
     } else {
-        formPhone.classList.remove('valid');
-        formPhone.classList.add('invalid');
+        validPhone.classList.remove('valid');
+        validPhone.classList.add('invalid');
         signal2.classList.add('span-on');
     };
 };
@@ -247,12 +251,12 @@ formPhone.onblur = function() {
 formName.onblur = function() {
     let answer_Name = validation.isNameUser(formName.value);
     if (answer_Name) {
-        formName.classList.remove('invalid');
+        validName.classList.remove('invalid');
         signal1.classList.remove('span-on');
-        formName.classList.add('valid');
+        validName.classList.add('valid');
     } else {
-        formName.classList.remove('valid');
-        formName.classList.add('invalid');
+        validName.classList.remove('valid');
+        validName.classList.add('invalid');
         signal1.classList.add('span-on');
     };
 };
@@ -314,3 +318,31 @@ hambTrue.forEach(
         menuLink.addEventListener("click", toggleMenu);
     }
 );
+
+
+// //#1grn Меню открывать и закрывать в мобильной версии
+// let openMenu_1 = document.querySelector(".arrow-1");
+// let openMenu_2 = document.querySelector(".arrow-2");
+// let openMenu_3 = document.querySelector(".arrow-3");
+
+// openMenu_1.addEventListener("click", openFormMobile);
+// openMenu_2.addEventListener("click", openFormMobile);
+// openMenu_3.addEventListener("click", openFormMobile);
+
+// function openFormMobile() {
+//     if (headerWrap.classList.contains("hamburger_true")) {
+//         headerWrap.classList.remove("hamburger_true");
+//         backHat.classList.remove("background_hat-true");
+//     } else {
+//         headerWrap.classList.add("hamburger_true");
+//         backHat.classList.add("background_hat-true");
+//     }
+// };
+
+
+// // Событие наступит когда загрузилась вся страница, включая стили, картинки и другие ресурсы.
+// window.onload = function width(e) {
+//     let screenWidth = window.screen.width;
+//     console.log("Ширина экрана", screenWidth);
+//     return screenWidth.width(e);
+// };

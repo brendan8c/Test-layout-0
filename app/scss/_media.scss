@@ -163,7 +163,6 @@
     }
     .background-text {
         font-size: 55px;
-        line-height: 60;
     }
 }
 
@@ -190,7 +189,6 @@
     }
     .background-text {
         font-size: 45px;
-        line-height: 55;
     }
 }
 
@@ -217,7 +215,6 @@
     }
     .background-text {
         font-size: 40px;
-        line-height: 50;
     }
     .background-item--wrap .box-item_0 {
         background-image: url(../img/item_0.1.jpg);
@@ -245,6 +242,24 @@
 @media (max-width: 580px) {
     .menu_categor-box {
         flex-basis: calc(62% - 120px);
+    }
+    .modal__window {
+        width: 100%;
+        padding: 30px 0px 20px 10px;
+    }
+    .box_2 .form-group .fg-mr {
+        width: 100%;
+    }
+    .box_2 .form-group #textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+    .box_2 .fg-send {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .box_2 .form-group-end {
+        margin-bottom: 25px;
     }
 }
 
@@ -282,7 +297,6 @@
     }
     .background-text {
         font-size: 36px;
-        line-height: 50;
     }
     .background-item {
         bottom: -160%;
