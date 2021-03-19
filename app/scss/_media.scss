@@ -243,10 +243,6 @@
     .menu_categor-box {
         flex-basis: calc(62% - 120px);
     }
-    .modal__window {
-        width: 100%;
-        padding: 30px 0px 20px 10px;
-    }
     .box_2 .form-group .fg-mr {
         width: 100%;
     }
@@ -256,10 +252,15 @@
     }
     .box_2 .fg-send {
         width: 100%;
-        margin-bottom: 10px;
     }
     .box_2 .form-group-end {
         margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 525px) {
+    .modal__window {
+        width: 100%;
     }
 }
 
@@ -274,6 +275,9 @@
         flex-basis: calc(60% - 45px);
         align-items: center;
     }
+    .box_2 .form-group #textarea {
+        padding: 13px 26px 13px 20px !important;
+    }
 }
 
 @media (max-width: 390px) {
@@ -283,6 +287,10 @@
     }
     .background-item--wrap .box-item {
         width: 145px;
+    }
+    .modal__window {
+        padding-left: 10px;
+        padding-right: 29px;
     }
 }
 

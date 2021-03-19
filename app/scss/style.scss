@@ -3,6 +3,10 @@
 @import "global";
 @import "animation";
 // ============================
+.global_wrap {
+    flex: 1;
+}
+
 .wrap_box-blur {
     position: relative;
     background-color: #fff;
@@ -33,6 +37,8 @@
 
 .background {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
     &-hat {
         position: fixed;
         display: flex;
@@ -114,6 +120,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
     }
     &-item {
@@ -163,10 +170,12 @@
                 align-items: center;
                 padding-left: 30px;
                 padding-right: 30px;
-                transition: all 0.4s;
+                transition: 0.1s;
+                border: 2px solid transparent;
                 &:hover {
                     border-radius: 6px;
-                    box-shadow: -1px -1px 5px #f08b98, 1px 1px 5px #f08b98, -1px 1px 5px #f08b98, 1px -1px 5px #f08b98;
+                    border: 2px solid #F08B98;
+                    box-shadow: -1px -1px 3px 1px #00000022, 1px 1px 3px 1px #00000022, -1px 1px 3px 1px #00000022, 1px -1px 3px 1px #00000022;
                 }
             }
             .box-item_wrap {
@@ -231,7 +240,6 @@
     &:active {
         svg {
             path {
-                stroke: #f08b98;
                 fill: #f08b98;
             }
         }
@@ -242,7 +250,6 @@
     .basket_burg:hover {
         svg {
             path {
-                stroke: #f08b98;
                 fill: #f08b98;
             }
         }
@@ -485,6 +492,7 @@
                 transform: scaleY(-1);
                 svg {
                     path {
+                        // Тут нужно оставить именно stroke
                         stroke: #f08b98;
                     }
                 }
@@ -534,6 +542,7 @@
             transform: scaleY(-1);
             svg {
                 path {
+                    // Тут нужно оставить именно stroke
                     stroke: #f08b98;
                 }
             }
@@ -558,7 +567,6 @@
         &:active {
             svg {
                 path {
-                    stroke: #f08b98;
                     fill: #f08b98;
                 }
             }
@@ -570,7 +578,6 @@
         &:active {
             svg {
                 path {
-                    stroke: #f08b98;
                     fill: #f08b98;
                 }
             }
@@ -582,7 +589,6 @@
         &:active {
             svg {
                 path {
-                    stroke: #f08b98;
                     fill: #f08b98;
                 }
             }
@@ -594,7 +600,6 @@
     .user .basket:hover {
         svg {
             path {
-                stroke: #f08b98;
                 fill: #f08b98;
             }
         }
@@ -605,7 +610,6 @@
     .user .favorites:hover {
         svg {
             path {
-                stroke: #f08b98;
                 fill: #f08b98;
             }
         }
@@ -616,7 +620,6 @@
     .user .profile:hover {
         svg {
             path {
-                stroke: #f08b98;
                 fill: #f08b98;
             }
         }
@@ -702,7 +705,7 @@
 }
 
 .span-on {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .valid-btn {
@@ -747,10 +750,7 @@
             box-sizing: border-box;
             border-radius: 25px;
             outline: none;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 13px;
-            padding-bottom: 13px;
+            padding: 13px 20px 13px 20px !important;
             @include f500;
             font-size: 16px;
             line-height: 22px;
@@ -836,6 +836,7 @@
         cursor: pointer;
         outline: none;
         opacity: 0.2;
+        margin-bottom: 30px;
     }
 }
 
@@ -847,7 +848,7 @@
     height: 560px;
     background-color: #fff;
     border-radius: 15px;
-    padding: 20px 0px 20px 30px;
+    padding: 20px 34px 20px 30px;
     .box {
         height: 1000px;
     }
@@ -866,6 +867,7 @@
 
 // :not находит элементы не соответсвующие селектру :target
 // :target применяется к целевому элементу (к идентификатору, который указан в адресной строке браузера) к разделу #modal.
+// Это стили неактивного окна 
 #modal:not(:target) {
     visibility: hidden;
     opacity: 0;

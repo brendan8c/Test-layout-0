@@ -19,24 +19,50 @@
 }
 
 //#1grn ScrollBar
-.mCS-my-theme .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-    background-color: #f08b98;
+// Скролл бар расположение
+.os-scrollbar-vertical {
+    left: auto;
+    bottom: 0 !important;
+    right: 0;
+    top: 20px !important;
+    height: 94%;
+    background: transparent !important;
 }
 
-.mCS-my-theme .mCSB_1_scrollbar .mCSB_dragger .mCSB_draggerRail {
+// ползунок
+.os-scrollbar-handle {
+    background-color: #f08b98 !important;
+    border-radius: 24px;
     width: 4px;
 }
 
-.mCS-my-theme .mCSB_scrollTools .mCSB_draggerRail {
-    background-color: #fad8dd;
+// полоса прокрутки
+.os-scrollbar-track {
+    background-color: #fad8dd !important;
+    transform: translate(-10px, 0px) !important;
+    border-radius: 24px;
+    width: 4px;
 }
 
-.mCSB_scrollTools .mCSB_draggerContainer {
-    right: 20px;
+// ========= Стили скроллбара для textarea =========
+.os-content>.os-textarea {
+    background: #f08b980d !important;
+    border: 2px solid #f08b984d !important;
+    border-radius: 25px !important;
+    margin-bottom: 10px !important;
 }
 
-.mCSB_scrollTools {
-    opacity: 1;
+.custom-theme>.os-content-glue {
+    height: 246px !important;
+}
+
+.custom-theme>.os-scrollbar-vertical {
+    left: auto;
+    bottom: 0 !important;
+    right: 0;
+    top: 20px !important;
+    height: 83%;
+    background: transparent !important;
 }
 
 //#1grn Header menu button

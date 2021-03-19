@@ -132,43 +132,57 @@ function isFullyVisible(el) {
 }
 
 
-//#1grn ScrollBar 
-(function($) {
-    $(window).on("load", function() {
-        $("#write").mCustomScrollbar({
-            theme: "my-theme"
-        });
+// //#1grn ScrollBar 
+document.addEventListener("DOMContentLoaded", function() {
+    // Первый аргумент - это элементы, которыми должен быть инициализирован плагин
+    // Второй аргумент должен быть как минимум пустым объектом или объектом с желаемыми параметрами.
+    OverlayScrollbars(document.querySelectorAll('#write'), {});
+});
+document.addEventListener("DOMContentLoaded", function() {
+    OverlayScrollbars(document.querySelectorAll('#textarea'), {
+        className: "custom-theme"
     });
-})(jQuery);
+});
 
-(function($) {
-    $(window).on("load", function() {
-        $("#textarea").mCustomScrollbar({
-            theme: "my-theme"
-        });
-    });
-})(jQuery);
-
-// С выпадающим меню у выпадающего меню баги, у этого плагина., если включить кастомный скролл.
-// (function($) {
-//     $(window).on("load", function() {
-//         $("#menu_scroll").mCustomScrollbar({
-//             theme: "my-theme"
-//         });
-//     });
-// })(jQuery);
 
 // #1grn Обрабатывает событие кнопки открытия и закрытия формы
-let btnBlur = document.querySelector(".background-btn--click");
-let backCenter = document.querySelector(".background_center");
-let btnCloseBlur = document.querySelector(".forma_blur");
+let btnBlur = document.querySelector(".background-btn--click"); // Кнопка открытия формы
+let backCenter = document.querySelector(".background_center"); // Общий блок
+let btnCloseBlur = document.querySelector(".forma_blur"); // Кнопка закрытия формы
+let BlurClose = document.getElementById("modal"); // Форма серая область
+let writeForm = document.getElementById("write"); // Форма
 
-btnBlur.addEventListener('click', function() {
+btnBlur.addEventListener('click', open_form); // Открытие формы
+btnCloseBlur.addEventListener('click', closed_form); // Закрытие формы
+BlurClose.addEventListener('click', closed_form_blur); // Закрытие формы по серой области 
+
+function open_form() {
     backCenter.style.zIndex = 3;
-});
-btnCloseBlur.addEventListener('click', function() {
+    btnBlur.style.zIndex = 0;
+    document.body.style.overflowY = "hidden";
+};
+
+function closed_form() {
     backCenter.style.zIndex = 2;
-});
+    btnBlur.style.zIndex = 1;
+    document.body.style.overflowY = "auto";
+    console.info("был клик на кнопку закрытия");
+};
+
+function closed_form_blur(e) {
+    if (backCenter.style.zIndex = 3 && e.target != writeForm && !writeForm.contains(e.target)) {
+        window.location.replace("#");
+        backCenter.style.zIndex = 2;
+        btnBlur.style.zIndex = 1;
+        document.body.style.overflowY = "auto";
+    }
+};
+
+// Проверяем открыта наша форма или нет. Если форма открыта у класса ".background_center" z-index = 3. 
+// Если событие клика произошло не на форме "writeForm" и не на вложенности формы тогда true
+// Метод replace () заменяет текущий документ новым. https://www.w3schools.com/jsref/met_loc_replace.asp
+// "element.target" это исходный элемент, на котором произошло событие.
+
 
 //#1grn Валидация форм. Паттерн разрешает все упомянутые сиволы, другие удалит.
 document.querySelector('#form-name').addEventListener('input', function() {
@@ -302,6 +316,7 @@ backHat.classList.contains("background_hat-true");
 
 // Включать и выключать меню при нажатии на гамбургер
 function toggleMenu() {
+    // contains вернёт true если .header__wrap содержит в себе hamburger_true
     if (headerWrap.classList.contains("hamburger_true")) {
         headerWrap.classList.remove("hamburger_true");
         backHat.classList.remove("background_hat-true");
