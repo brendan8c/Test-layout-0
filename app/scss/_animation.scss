@@ -74,29 +74,23 @@
 
 .header__menu-row {
     width: 100%;
-    background-color: #000;
     height: 3px;
+    background-color: #000;
     margin-bottom: 4px;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // width: 25px;
+    // height: 3px;
 }
 
 .header__menu-row1 {
-    border-top-left-radius: 100%;
-    border-bottom-left-radius: 100%;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 50%;
-    box-shadow: 0 0 1px #fff;
+    // background-image: url(../img/right_fill.svg);
 }
 
 .header__menu-row2 {
-    border-top-left-radius: 100%;
-    border-bottom-left-radius: 100%;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 100%;
+    // background-image: url(../img/center_fill.svg);
 }
 
 .header__menu-row3 {
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 100%;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 100%;
+    // background-image: url(../img/left_fill.svg);
 }

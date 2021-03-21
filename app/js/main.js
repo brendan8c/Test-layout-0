@@ -150,7 +150,10 @@ let btnBlur = document.querySelector(".background-btn--click"); // Кнопка 
 let backCenter = document.querySelector(".background_center"); // Общий блок
 let btnCloseBlur = document.querySelector(".forma_blur"); // Кнопка закрытия формы
 let BlurClose = document.getElementById("modal"); // Форма серая область
-let writeForm = document.getElementById("write"); // Форма
+let writeForm = document.getElementById("write"); // Форма 
+let classModal = document.querySelector(".modal"); // Форма
+let backgroundHat = document.querySelector(".background-hat");
+let userScreen = document.body.clientWidth; // Ширина окна браузера.
 
 btnBlur.addEventListener('click', open_form); // Открытие формы
 btnCloseBlur.addEventListener('click', closed_form); // Закрытие формы
@@ -160,24 +163,53 @@ function open_form() {
     backCenter.style.zIndex = 3;
     btnBlur.style.zIndex = 0;
     document.body.style.overflowY = "hidden";
+    classModal.classList.add("modal_open");
+    // Если размер окна браузера меньше или равен 599px 
+    if (userScreen <= 599) {
+        backgroundHat.style.zIndex = 5;
+        backgroundHat.style.backgroundColor = "rgba(255,255,255,0.9)";
+        backHat.classList.add("background_hat-true-forma");
+    }
 };
 
 function closed_form() {
     backCenter.style.zIndex = 2;
     btnBlur.style.zIndex = 1;
     document.body.style.overflowY = "auto";
-    console.info("был клик на кнопку закрытия");
+    classModal.classList.remove("modal_open");
+    if (userScreen <= 599) {
+        backgroundHat.style.backgroundColor = "#00000000";
+        backgroundHat.style.zIndex = 3;
+        backHat.classList.remove("background_hat-true-forma");
+    }
 };
 
 function closed_form_blur(e) {
     if (backCenter.style.zIndex = 3 && e.target != writeForm && !writeForm.contains(e.target)) {
-        window.location.replace("#");
         backCenter.style.zIndex = 2;
         btnBlur.style.zIndex = 1;
         document.body.style.overflowY = "auto";
+        classModal.classList.remove("modal_open");
+        if (userScreen <= 599) {
+            backgroundHat.style.backgroundColor = "#00000000";
+            backgroundHat.style.zIndex = 3;
+            backHat.classList.remove("background_hat-true-forma");
+        }
     }
 };
 
+
+
+// function closed_form_blur(e) {
+//     if (backCenter.style.zIndex = 3 && e.target != writeForm && !writeForm.contains(e.target)) {
+//         window.location.replace("#");
+//         backCenter.style.zIndex = 2;
+//         btnBlur.style.zIndex = 1;
+//         document.body.style.overflowY = "auto";
+//         classModal.classList.remove("modal_open");
+//     }
+// };
+// Использую (e) в качестве имени параметра функции.
 // Проверяем открыта наша форма или нет. Если форма открыта у класса ".background_center" z-index = 3. 
 // Если событие клика произошло не на форме "writeForm" и не на вложенности формы тогда true
 // Метод replace () заменяет текущий документ новым. https://www.w3schools.com/jsref/met_loc_replace.asp
