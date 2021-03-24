@@ -6,13 +6,13 @@ DirectoryIndex index.html
 
 # Обработка ошибок
 # - ситуация, когда посетитель обращается к несуществующей странице;
-ErrorDocument 404 https://fluxx.fun/error/404.html
+ErrorDocument 404 https://site.com/error/404.html
 # - в случае, когда доступ к странице ограничен;
-ErrorDocument 403 https://fluxx.fun/error/403.html
+ErrorDocument 403 https://site.com/error/403.html
 # - в запросе посетителя обнаружена синтаксическая ошибка;
-ErrorDocument 400 https://fluxx.fun/error/400.html
+ErrorDocument 400 https://site.com/error/400.html
 # - любая внутренняя ошибка сервера, которая не входит в рамки остальных ошибок класса.
-ErrorDocument 500 https://fluxx.fun/error/500.html
+ErrorDocument 500 https://site.com/error/500.html
 
 # Управляем кодировкой, все документы необходимо отдавать в кодировке UTF-8.
 AddType "text/html; charset=utf-8" .html .htm
@@ -22,10 +22,10 @@ AddType "text/html; charset=utf-8" .html .htm
 # - Включаем проверку HTTP_REFERER
 RewriteEngine On
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https://(.+\.)?fluxx.\.fun/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://(.+\.)?site.\.com/ [NC]
 # - Меняем запрошенный файл на картинку с логотипом Вашего проекта:
 RewriteCond %{REQUEST_URI} !loool.png$ [NC]
-RewriteRule .(jpg|jpeg|gif|bmp|png)$ https://fluxx.fun/img/loool.png [L]
+RewriteRule .(jpg|jpeg|gif|bmp|png)$ https://site.com/img/loool.png [L]
 </IfModule>
 # - Другая напасть - отображение информации с Вашей площадки на другом сайте посредством тега <iframe>. 
 # - С его помощью можно воровать даже видео, поэтому такую возможность обязательно следует заблокировать:
@@ -83,10 +83,10 @@ php_value post_max_size 25M
 # RewriteCond %{SERVER_PORT} !^443
 # RewriteCond %{REQUEST_FILENAME} !-f
 # # - url адрес сайта "домен"
-# RewriteRule ^ https://fluxx.fun%{REQUEST_URI} [R=301,L]
+# RewriteRule ^ https://site.com%{REQUEST_URI} [R=301,L]
 # RewriteCond %{HTTP:X-SSL-Emu} !on
 # # - Имя сервера
-# RewriteRule .* https://%{fluxx.fun}%{REQUEST_URI} [R=301,L]
+# RewriteRule .* https://%{site.com}%{REQUEST_URI} [R=301,L]
 
 # # Редирект c www на https
 # RewriteEngine On
@@ -95,7 +95,7 @@ php_value post_max_size 25M
 # RewriteCond %{SERVER_PORT} !^443
 # RewriteCond %{REQUEST_FILENAME} !-f
 # # - url адрес сайта "домен"
-# RewriteRule ^ https://www.fluxx.fun%{REQUEST_URI} [R=301,L]
+# RewriteRule ^ https://www.site.com%{REQUEST_URI} [R=301,L]
 
 # Запрет доступа для конкретного IP-адреса;
 # где 192.168.1.1. - IP-адрес, которому запрещается доступ(в конце обязательно должна быть точка).

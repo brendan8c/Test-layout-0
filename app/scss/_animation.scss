@@ -18,6 +18,10 @@
     opacity: 0;
 }
 
+.opacity_5 {
+    opacity: 0;
+}
+
 //#1grn ScrollBar
 // Скролл бар расположение
 .os-scrollbar-vertical {
@@ -74,23 +78,7 @@
 
 .header__menu-row {
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: #000;
     margin-bottom: 4px;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // width: 25px;
-    // height: 3px;
-}
-
-.header__menu-row1 {
-    // background-image: url(../img/right_fill.svg);
-}
-
-.header__menu-row2 {
-    // background-image: url(../img/center_fill.svg);
-}
-
-.header__menu-row3 {
-    // background-image: url(../img/left_fill.svg);
 }

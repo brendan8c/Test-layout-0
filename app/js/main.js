@@ -3,9 +3,9 @@
 let isScrolling = false;
 
 // События прокрутки
+// Плагин Quokka.js видит тут ошибку. Решние (https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97)
 window.addEventListener("scroll", throttleScroll, false);
-
-// Обработчик событий вызываемый при сроле. Как только страница начинает прокручиваться, вызывается этот обработчик событий.
+// Обработчик событий вызываемый при скроле. Как только страница начинает прокручиваться, вызывается этот обработчик событий.
 function throttleScroll(e) {
     if (isScrolling == false) {
         // Определяем задержку реакции браузера на обработку того или иного события привяжем данные параметры к частоте обновления кадров страницы. 
@@ -23,49 +23,49 @@ let wrapbox1 = document.querySelector(".wrap-box1");
 let wrapbox2 = document.querySelector(".wrap-box2");
 let wrapbox3 = document.querySelector(".wrap-box3");
 let wrapbox4 = document.querySelector(".wrap-box4");
+let wrapbox5 = document.querySelector(".wrap-box5");
 let bgVideo = document.querySelector(".background-video");
 let bgImage = document.querySelector(".background-img");
 
 function scrolling() {
 
-    // Полностью видимые элементы
+    // Если .wrap-box1 полностью видим тогда ****, если нет тогда ****.
     if (isFullyVisible(wrapbox1)) {
         wrapbox1.classList.add("active");
         bgVideo.classList.add("opacity_1");
-        bgVideo.classList.remove("opacity_0");
         bgImage.classList.add("opacity_1");
+        bgVideo.classList.remove("opacity_0");
         bgImage.classList.remove("opacity_0");
     } else {
         wrapbox1.classList.remove("active");
         bgVideo.classList.remove("opacity_1");
-        bgVideo.classList.add("opacity_0");
         bgImage.classList.remove("opacity_1");
+        bgVideo.classList.add("opacity_0");
         bgImage.classList.add("opacity_0");
-    }
+    };
 
-    // Полностью видимые элементы
     if (isFullyVisible(wrapbox2)) {
         wrapbox2.classList.add("active");
         bgVideo.classList.add("opacity_2");
+        bgImage.classList.add("opacity_2");
         bgVideo.classList.remove("opacity_0");
         bgVideo.classList.remove("opacity_1");
-        bgImage.classList.add("opacity_2");
         bgImage.classList.remove("opacity_0");
         bgImage.classList.remove("opacity_1");
     } else {
         wrapbox2.classList.remove("active");
         bgVideo.classList.remove("opacity_2");
         bgImage.classList.remove("opacity_2");
-    }
+    };
 
-    // Полностью видимые элементы
     if (isFullyVisible(wrapbox3)) {
         wrapbox3.classList.add("active");
         bgVideo.classList.add("opacity_3");
+        bgImage.classList.add("opacity_3");
+        backHat.classList.add("background_hat-true-slide1");
         bgVideo.classList.remove("opacity_0");
         bgVideo.classList.remove("opacity_1");
         bgVideo.classList.remove("opacity_2");
-        bgImage.classList.add("opacity_3");
         bgImage.classList.remove("opacity_0");
         bgImage.classList.remove("opacity_1");
         bgImage.classList.remove("opacity_2");
@@ -73,26 +73,56 @@ function scrolling() {
         wrapbox3.classList.remove("active");
         bgVideo.classList.remove("opacity_3");
         bgImage.classList.remove("opacity_3");
-    }
+        backHat.classList.remove("background_hat-true-slide1");
+    };
 
-    // Полностью видимые элементы
     if (isFullyVisible(wrapbox4)) {
         wrapbox4.classList.add("active");
         bgVideo.classList.add("opacity_4");
+        bgImage.classList.add("opacity_4");
+        backHat.classList.add("background_hat-true-slide2");
         bgVideo.classList.remove("opacity_0");
         bgVideo.classList.remove("opacity_1");
         bgVideo.classList.remove("opacity_2");
         bgVideo.classList.remove("opacity_3");
-        bgImage.classList.add("opacity_4");
         bgImage.classList.remove("opacity_0");
         bgImage.classList.remove("opacity_1");
         bgImage.classList.remove("opacity_2");
         bgImage.classList.remove("opacity_3");
+        // Когда этот бокс виден удаляем классы которые задвали в wrapbox5
+        // когда wrapbox5 остаётся один в поле видемости он применяет свои стили, а когда 
+        // откатываем назад в поле видемости появляется этот wrapbox4 и отменяет стили wrapbox5
+        bgVideo.classList.remove("opacity_5");
+        bgImage.classList.remove("opacity_5");
+        backHat.classList.remove("background_hat-true-slide3");
     } else {
         wrapbox4.classList.remove("active");
         bgVideo.classList.remove("opacity_4");
         bgImage.classList.remove("opacity_4");
-    }
+        backHat.classList.remove("background_hat-true-slide2");
+    };
+
+    if (isFullyVisible(wrapbox5)) {
+        wrapbox5.classList.add("active");
+        bgVideo.classList.add("opacity_5");
+        bgImage.classList.add("opacity_5");
+        backHat.classList.add("background_hat-true-slide3");
+        bgVideo.classList.remove("opacity_0");
+        bgVideo.classList.remove("opacity_1");
+        bgVideo.classList.remove("opacity_2");
+        bgVideo.classList.remove("opacity_3");
+        bgVideo.classList.remove("opacity_4");
+        bgImage.classList.remove("opacity_0");
+        bgImage.classList.remove("opacity_1");
+        bgImage.classList.remove("opacity_2");
+        bgImage.classList.remove("opacity_3");
+        bgImage.classList.remove("opacity_4");
+    } else {
+        wrapbox5.classList.remove("active");
+        // bgVideo.classList.remove("opacity_5");
+        // bgImage.classList.remove("opacity_5");
+        // backHat.classList.remove("background_hat-true-slide3");
+    };
 
     // Частично видимые элементы (—=the_test=—)
     // if (isPartiallyVisible(wrapbox5)) {
@@ -101,8 +131,8 @@ function scrolling() {
     // } else {
     //     wrapbox5.classList.remove("half-active");
     //     bgVideo.classList.remove("opacity_H1");
-    // }
-}
+    // };
+};
 
 // Определение частично видимых элементов, возвращает true или false
 function isPartiallyVisible(el) {

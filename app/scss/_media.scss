@@ -1,16 +1,7 @@
 // #2pur +
-@media (max-width: 1338px) {
-    .background-item {
-        margin: 0 10px;
-    }
-}
-
 @media (max-width: 1225px) {
     .background-item--wrap .box_wrapper {
         flex-basis: calc(30% - 100px);
-    }
-    .background-item {
-        bottom: -20%;
     }
     .wrap_box-blur {
         z-index: 1;
@@ -158,9 +149,6 @@
     .background-item--wrap .box_wrapper {
         flex-basis: calc(45% - 100px);
     }
-    .background-item {
-        bottom: -40%;
-    }
     .background-text {
         font-size: 55px;
     }
@@ -183,8 +171,7 @@
 }
 
 @media (max-width: 730px) {
-    .background-item--text {
-        width: 470px;
+    .background-item--text span {
         font-size: 23px;
     }
     .background-text {
@@ -200,9 +187,12 @@
     .background-item--wrap .box_wrapper {
         flex-basis: calc(80% - 30%);
     }
-    .background-item--text {
-        width: 375px;
+    .background-item--text span {
         font-size: 22px;
+    }
+    .background-item--text {
+        height: 165px;
+        padding: 24px 32px 21px 32px;
     }
     .background-video {
         display: none;
@@ -213,9 +203,6 @@
     }
     .background-img-mobile {
         opacity: 1;
-    }
-    .background-item {
-        bottom: -72%;
     }
     .background-text {
         font-size: 40px;
@@ -275,6 +262,12 @@
     .background-wrapper .menu {
         height: 100vh;
     }
+    .wrap_box-blur {
+        height: 80px;
+    }
+    .background-item {
+        height: 0;
+    }
 }
 
 @media (max-width: 525px) {}
@@ -296,10 +289,6 @@
 }
 
 @media (max-width: 390px) {
-    .background-item--text {
-        width: 300px;
-        padding: 0 20px;
-    }
     .background-item--wrap .box-item {
         width: 145px;
     }
@@ -307,21 +296,19 @@
         padding-left: 10px;
         padding-right: 29px;
     }
+    .wrap_box-blur {
+        height: 50px;
+    }
 }
 
 @media (max-width: 325px) {
-    .background-item--wrap .box_wrapper {
-        flex-basis: calc(80% - 30%);
+    .background-item--wrap {
+        display: block;
     }
-    .background-item--text {
-        width: 236px;
+    .background-item--text span {
         line-height: 30px;
-        padding: 0;
     }
     .background-text {
         font-size: 36px;
-    }
-    .background-item {
-        bottom: -160%;
     }
 }
