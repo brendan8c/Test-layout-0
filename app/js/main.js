@@ -397,6 +397,37 @@ hambTrue.forEach(
 );
 
 
+// document.documentElement.addEventListener('touchmove', function(event) {
+//     if (event.scale !== 1) { event.preventDefault(); }
+// }, false);
+
+// Ссылаемся на DOM-объект для тега <html>, создаём событие движения точки касания и отменяем действия браузера по умолчанию.
+// document.documentElement.addEventListener('touchmove', function(event) {
+//     event.preventDefault();
+// }, false);
+
+
+// Обнаружение двойного нажатия на экран.
+// document.getElementById("bgimtx").addEventListener("touchstart", tapHandler);
+
+// var tapedTwice = false;
+
+// function tapHandler(event) {
+//     if (!tapedTwice) {
+//         tapedTwice = true;
+//         setTimeout(function() { tapedTwice = false; }, 300);
+//         return false;
+//     }
+//     event.preventDefault();
+//     // действие при двойном нажатии
+//     // alert('Ты нажал мне дважды!!!');
+// }
+
+// Отменяем действия браузера по умолчанию 
+document.documentElement.ontouchstart = function(e) {
+    e.preventDefault();
+}
+
 // //#1grn Меню открывать и закрывать в мобильной версии
 // let openMenu_1 = document.querySelector(".arrow-1");
 // let openMenu_2 = document.querySelector(".arrow-2");

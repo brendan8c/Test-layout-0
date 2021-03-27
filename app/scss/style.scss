@@ -3,6 +3,14 @@
 @import "global";
 @import "animation";
 // ============================
+body {
+    // Отключаем приближение на мобильных устройствах
+    touch-action: pan-y;
+    // Определяет, может ли пользователь выделять текст.
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 .global_wrap_1 {
     flex: 1;
 }
