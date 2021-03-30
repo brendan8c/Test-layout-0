@@ -1,5 +1,4 @@
-//#1grn Анимация при прокрутке страницы на JavaScript и CSS
-
+// #1grn Анимация при прокрутке страницы на JavaScript и CSS
 let isScrolling = false;
 
 // События прокрутки
@@ -397,60 +396,25 @@ hambTrue.forEach(
 );
 
 
-// document.documentElement.addEventListener('touchmove', function(event) {
-//     if (event.scale !== 1) { event.preventDefault(); }
-// }, false);
+//#2grn touchstart - Обнаружение двойного щюпка по сенсору.
+document.documentElement.addEventListener('touchmove', function(event) {
+    if (event.scale !== 1) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+}, false);
 
-// Ссылаемся на DOM-объект для тега <html>, создаём событие движения точки касания и отменяем действия браузера по умолчанию.
-// document.documentElement.addEventListener('touchmove', function(event) {
-//     event.preventDefault();
-// }, false);
-
-
-// Обнаружение двойного нажатия на экран.
-// document.getElementById("bgimtx").addEventListener("touchstart", tapHandler);
-
-// var tapedTwice = false;
-
-// function tapHandler(event) {
-//     if (!tapedTwice) {
-//         tapedTwice = true;
-//         setTimeout(function() { tapedTwice = false; }, 300);
-//         return false;
-//     }
-//     event.preventDefault();
-//     // действие при двойном нажатии
-//     // alert('Ты нажал мне дважды!!!');
-// }
-
-// Отменяем действия браузера по умолчанию 
-document.documentElement.ontouchstart = function(e) {
-    e.preventDefault();
-}
-
-// //#1grn Меню открывать и закрывать в мобильной версии
-// let openMenu_1 = document.querySelector(".arrow-1");
-// let openMenu_2 = document.querySelector(".arrow-2");
-// let openMenu_3 = document.querySelector(".arrow-3");
-
-// openMenu_1.addEventListener("click", openFormMobile);
-// openMenu_2.addEventListener("click", openFormMobile);
-// openMenu_3.addEventListener("click", openFormMobile);
-
-// function openFormMobile() {
-//     if (headerWrap.classList.contains("hamburger_true")) {
-//         headerWrap.classList.remove("hamburger_true");
-//         backHat.classList.remove("background_hat-true");
-//     } else {
-//         headerWrap.classList.add("hamburger_true");
-//         backHat.classList.add("background_hat-true");
-//     }
-// };
+//#2grn touchstart - Обнаружение двойного нажатия на экран.
+document.documentElement.addEventListener('touchstart', function(event) {
+    if (event.scale !== 1) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+}, false);
 
 
-// // Событие наступит когда загрузилась вся страница, включая стили, картинки и другие ресурсы.
+// Событие наступит когда загрузилась вся страница, включая стили, картинки и другие ресурсы.
 // window.onload = function width(e) {
 //     let screenWidth = window.screen.width;
-//     console.log("Ширина экрана", screenWidth);
-//     return screenWidth.width(e);
+//     console.info("Ширина экрана", screenWidth);
 // };
