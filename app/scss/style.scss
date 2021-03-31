@@ -513,7 +513,6 @@ body {
         top: 70px;
         left: 0;
         border-radius: 1px;
-        transform: scaleY(0);
         transform-origin: 50% 0;
         min-height: 260px;
         width: 100%;
@@ -522,6 +521,15 @@ body {
         z-index: -1;
         transition: all 0.3s;
         overflow: hidden;
+        &-1 {
+            transform: scaleY(0);
+        }
+        &-2 {
+            transform: scaleY(0);
+        }
+        &-3 {
+            transform: scaleY(0);
+        }
         &-photo {
             padding-top: 30px;
             .red-line {

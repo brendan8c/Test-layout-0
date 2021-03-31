@@ -418,3 +418,78 @@ document.documentElement.addEventListener('touchstart', function(event) {
 //     let screenWidth = window.screen.width;
 //     console.info("Ширина экрана", screenWidth);
 // };
+
+
+// Событие для выпадющего меню (категории, подкатегории) в мобильной версии 
+let menuMobClick1 = document.querySelector(".menu_list-1");
+let menuMobClick2 = document.querySelector(".menu_list-2");
+let menuMobClick3 = document.querySelector(".menu_list-3");
+let zeroMenu1 = document.querySelector('.menu_categor-1');
+let zeroMenu2 = document.querySelector('.menu_categor-2');
+let zeroMenu3 = document.querySelector('.menu_categor-3');
+// let triangle1 = document.querySelector('.menu-triangle');
+
+menuMobClick1.addEventListener('click', openMenu1);
+menuMobClick2.addEventListener('click', openMenu2);
+menuMobClick3.addEventListener('click', openMenu3);
+
+
+// Значения 3D-матрицы https://developer.apple.com/documentation/webkitjs/webkitcssmatrix
+// Одно из 16 значений однородной матрицы 4x4. Например, m12 представляет значение в первой строке и втором столбце.
+// Находим значение в матрице для css свойства "transform: scaleY(0);" изменив 0 в css на 2 например.
+
+// let getStyle1 = getComputedStyle(zeroMenu1);
+// let matrix = new DOMMatrixReadOnly(getStyle1.transform);
+// console.clear();
+// console.info("gmatrix.m11 = ", matrix.m11);
+// console.info("gmatrix.m12 = ", matrix.m12);
+// console.info("gmatrix.m13 = ", matrix.m13);
+// console.info("gmatrix.m14 = ", matrix.m14);
+// console.info("gmatrix.m21 = ", matrix.m21);
+// console.info("gmatrix.m22 = ", matrix.m22);
+// console.info("gmatrix.m23 = ", matrix.m23);
+// console.info("gmatrix.m24 = ", matrix.m24);
+// console.info("gmatrix.m31 = ", matrix.m31);
+// console.info("gmatrix.m32 = ", matrix.m32);
+// console.info("gmatrix.m33 = ", matrix.m33);
+// console.info("gmatrix.m34 = ", matrix.m34);
+// console.info("gmatrix.m41 = ", matrix.m41);
+// console.info("gmatrix.m42 = ", matrix.m42);
+// console.info("gmatrix.m43 = ", matrix.m43);
+// console.info("gmatrix.m44 = ", matrix.m44);
+
+
+function openMenu1() {
+    let getStyle = getComputedStyle(zeroMenu1);
+    let matrix = new DOMMatrixReadOnly(getStyle.transform);
+
+    if (matrix.m22 == 0) {
+        zeroMenu1.style.transform = "scaleY(1)";
+        // triangle1.style.transform = "scaleX(1)";
+    } else {
+        zeroMenu1.style.transform = "scaleY(0)";
+        // triangle1.style.transform = "scaleX(0)";
+    }
+};
+
+function openMenu2() {
+    let getStyle = getComputedStyle(zeroMenu2);
+    let matrix = new DOMMatrixReadOnly(getStyle.transform);
+
+    if (matrix.m22 == 0) {
+        zeroMenu2.style.transform = "scaleY(1)";
+    } else {
+        zeroMenu2.style.transform = "scaleY(0)";
+    }
+};
+
+function openMenu3() {
+    let getStyle = getComputedStyle(zeroMenu3);
+    let matrix = new DOMMatrixReadOnly(getStyle.transform);
+
+    if (matrix.m22 == 0) {
+        zeroMenu3.style.transform = "scaleY(1)";
+    } else {
+        zeroMenu3.style.transform = "scaleY(0)";
+    }
+};
